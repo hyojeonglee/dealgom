@@ -27,6 +27,10 @@ class RawDeal(Envelope):
     price: int | None = None       # 소스가 구조화해 주면 채우고, 아니면 Normalizer가 추출
     shipping: int | None = None
     url: str
+    market: str | None = None
+    in_stock: bool | None = None
+    community: str | None = None
+    posted_at: datetime | None = None
 
 
 class NormalizedDeal(Envelope):

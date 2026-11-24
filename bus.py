@@ -1,14 +1,17 @@
 import os
+from pathlib import Path
 
 import redis
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 r = redis.Redis.from_url(
     os.getenv("REDIS_URL", "redis://localhost:6379"),
     decode_responses=True,
+    socket_connect_timeout=5,
+    socket_timeout=None,
 )
 
 
